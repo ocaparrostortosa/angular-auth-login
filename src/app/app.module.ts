@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //FIREBASE Imports.
 import {AngularFireModule} from '@angular/fire';
@@ -11,10 +12,16 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {environment} from 'src/environments/environment';
 ////FIREBASE Services
 import {FirebaseUserService} from 'src/app/services/firebase/firebase-user.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //MATERIAL-UI Imports
+////Can use *, but i prefer this way to dont load all the imports
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+
+//Reactive Forms Module
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,12 +31,14 @@ import {MatButtonModule} from '@angular/material/button';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    //Reactive Forms
+    ReactiveFormsModule,
     //Firebase
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule,
-    BrowserAnimationsModule,
+    AngularFireDatabaseModule,    
     //Material-ui
-    MatButtonModule
+    MatButtonModule, MatInputModule, MatFormFieldModule, MatIconModule
   ],
   providers: [FirebaseUserService],
   bootstrap: [AppComponent]

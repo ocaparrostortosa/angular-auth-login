@@ -1,1 +1,16 @@
-<p>login-page works!</p>
+<div class="loginMainContainer">
+<form [formGroup]="signinForm" (ngSubmit)="signIn(signinForm.value)">
+    <mat-form-field>
+        <mat-label>Email:</mat-label>
+        <input formControlName="email" matInput placeholder="Give us your email to login" type="text">
+        <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Password:</mat-label>
+        <input formControlName="password" matInput placeholder="Try to remember..." type="password">
+        <mat-icon matSuffix>password</mat-icon>
+    </mat-form-field>
+    <button [disabled]="signinForm.invalid" mat-button color="primary" type="submit">Log-in</button>
+</form>
+<p>{{errorMessage}}</p>
+</div>
