@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { FirebaseLoginService } from '../../services/firebase/firebase-login.service';
+import { FirebaseLoginService } from '@firebaseServices/firebase-login.service';
 
 @Component({
   selector: 'app-login-page',
