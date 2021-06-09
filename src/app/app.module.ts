@@ -19,15 +19,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 //Reactive Forms Module
 import { ReactiveFormsModule } from '@angular/forms';
+import { ErrorBottomSheetComponent } from './components/error-bottom-sheet/error-bottom-sheet.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    ErrorBottomSheetComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,    
     //Material-ui
-    MatButtonModule, MatInputModule, MatFormFieldModule, MatIconModule
+    MatButtonModule, MatInputModule, MatFormFieldModule, MatIconModule, MatCardModule, MatBottomSheetModule
   ],
   providers: [FirebaseUserService],
   bootstrap: [AppComponent]

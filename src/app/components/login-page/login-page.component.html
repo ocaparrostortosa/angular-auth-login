@@ -1,16 +1,37 @@
 <div class="loginMainContainer">
-<form [formGroup]="signinForm" (ngSubmit)="signIn(signinForm.value)">
-    <mat-form-field>
-        <mat-label>Email:</mat-label>
-        <input formControlName="email" matInput placeholder="Give us your email to login" type="text">
-        <mat-icon matSuffix>email</mat-icon>
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Password:</mat-label>
-        <input formControlName="password" matInput placeholder="Try to remember..." type="password">
-        <mat-icon matSuffix>password</mat-icon>
-    </mat-form-field>
-    <button [disabled]="signinForm.invalid" mat-button color="primary" type="submit">Log-in</button>
-</form>
-<p>{{errorMessage}}</p>
+
+    <mat-card class="loginCard">
+        <!-- Login mat card -->
+        <mat-card-header>
+            <mat-card-title>Angular Auth Login</mat-card-title>
+            <mat-card-subtitle>By Oscar Caparros</mat-card-subtitle>          
+        </mat-card-header>
+        <mat-card-content>
+            <form [formGroup]="signinForm">
+                <table>
+                    <tr><td>
+                        <mat-form-field>
+                            <mat-label>Email:</mat-label>
+                            <input formControlName="email" matInput placeholder="Give us your email to login"
+                                type="text" [(ngModel)]="email">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                    </td></tr>
+                    <tr><td>
+                        <mat-form-field>
+                            <mat-label>Password:</mat-label>
+                            <input formControlName="password" matInput placeholder="Try to remember..."
+                             type="password" [(ngModel)]="password">
+                            <mat-icon matSuffix>password</mat-icon>
+                        </mat-form-field>
+                    </td></tr>
+                </table>                
+            </form>
+        </mat-card-content>
+        <mat-card-actions class="loginCardActions">
+            <button [disabled]="!signinForm.valid" mat-raised-button type="submit" color="primary" (click)="signIn()">Log-in</button>
+            <button mat-button type="submit" color="accent">Register</button>
+        </mat-card-actions>
+    </mat-card>
+
 </div>
